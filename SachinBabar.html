@@ -86,10 +86,11 @@ This issue is seen with CORS. This can be caused by redirecting or blocking a CO
     <title>Rounded Corner Paragraph</title>
     <style>
         .inner-paragraph {
-            display: inline-block; /* display within the box y*/
+            display: flex; /* display within the box y*/
             align-items: center;
             vertical-align:middle;
             justify-content: center;
+            place-items: center;
             text-align: left; /* left side of page */
             border: 4px solid #333; /* Defines the border: width, style, and color */
             border-radius: 10px; /* Rounds all four corners with a 10px radius */

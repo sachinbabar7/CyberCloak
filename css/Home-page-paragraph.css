@@ -1,0 +1,13 @@
+<p class="styled-paragraph">
+  This is a paragraph with a border, rounded corners, and a background color.
+</p>
+
+.styled-paragraph {
+  background-color: #f0f8ff; /* Light blue background */
+  border: 2px solid #4682b4; /* Solid blue border */
+  border-radius: 15px; /* Rounded corners */
+  padding: 15px; /* Spacing between content and border */
+  margin: 20px; /* Spacing around the paragraph */
+  font-family: Arial, sans-serif; /* Example font */
+  color: #333; /* Text color */
+}

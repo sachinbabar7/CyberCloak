@@ -58,6 +58,32 @@
             border-bottom: 10px solid transparent;
             border-left: 10px solid #070707; /* Color of the arrow */
         }
+
+             .Global-experience-box {
+            position: absolute;
+            right: -270px; /* Position to the left of the centered box */
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #e0f7fa;
+            border: 1px solid #00bcd4;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            white-space:nowrap; /* Prevent text from wrapping */
+        }
+
+        .Global-experience-box::after {
+            content: '';
+            position: absolute;
+            right: -50px; /* Position the arrow to the right of the pointing box */
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 10px solid #070707; /* Color of the arrow */
+        }
+
     </style>
 </head>
 <body>
@@ -72,6 +98,10 @@
             <p><strong>Tool expertise.</strong><br>
                 SevOne,Cacti,Forward-networks,<br>
                 AppDynamics,Dynatrace</p>
+        </div>
+         <div class="Global-experience-box">
+            <p><strong>Global Experience</strong><br>
+                India,Malaysia,Singapore<br></p>
         </div>
     </div>
 </body>

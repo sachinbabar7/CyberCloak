@@ -85,22 +85,14 @@ This issue is seen with CORS. This can be caused by redirecting or blocking a CO
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rounded Corner Paragraph</title>
     <style>
-        .inner-paragraph {
-            display:inline-block; /* display within the box y*/
-            align-items: left;
-            vertical-align:left;
+        body {
+            display: flex;
             justify-content: center;
-            place-content: center;
-            place-items: center;
-            text-align: left; /* left side of page */
-            position: relative;
-            border: 4px solid #333; /* Defines the border: width, style, and color */
-            border-radius: 10px; /* Rounds all four corners with a 10px radius */
-            padding: 15px; /* Adds space between the text and the border */
-            margin: 20px; /* Adds space outside the border */
-            background-color: #a4b7bd; /* Sets a background color for the paragraph */
-            font-family: Georgia, serif;
-            color: #000000;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: sans-serif;
         }
         .outer-paragraph {
             width: 80%; /* Adjust width as needed */

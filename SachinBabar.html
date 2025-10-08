@@ -132,6 +132,97 @@ This issue is seen with CORS. This can be caused by redirecting or blocking a CO
 </html>
 <!--          End of Paragraph                       -->
 
+
+
+<!-- Rectengle box -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered and Pointing Text Boxes</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: sans-serif;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 50px; /* Space between the two boxes */
+        }
+
+        .text-box {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 200px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pointing-box {
+            position: relative;
+        }
+
+        .pointing-box::before {
+            content: '';
+            position: absolute;
+            right: -20px; /* Position the pointer to the right of the box */
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 20px solid #ccc; /* Color of the pointer */
+            z-index: 1; /* Ensure pointer is above the box */
+        }
+
+        .pointing-box::after {
+            content: '';
+            position: absolute;
+            right: -19px; /* Adjust slightly for border overlap */
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-left: 20px solid white; /* Inner color of the pointer */
+            z-index: 2; /* Ensure inner part of pointer is above outer part */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-box pointing-box">
+            <p>Pointing Text Box</p>
+        </div>
+        <div class="text-box">
+            <p>Centered Text Box</p>
+        </div>
+    </div>
+</body>
+</html>
+<!-- End of rectengle box -->
+
+
+
+
+
         <footer class="text-center footer">
             <hr>
             <h6 class="text-center copyright">© Sachin Babar - <a href=mailto:sachinb7989@gmail.com>sachinb7989@gmail.com</a></h6>

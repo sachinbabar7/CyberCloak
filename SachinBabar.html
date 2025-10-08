@@ -133,15 +133,12 @@ This issue is seen with CORS. This can be caused by redirecting or blocking a CO
 <!--          End of Paragraph                       -->
 
 
-
-<!-- Rectengle box -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centered and Pointing Text Boxes</title>
+    <title>Centered Text Boxes with Pointer</title>
     <style>
         body {
             display: flex;
@@ -154,69 +151,65 @@ This issue is seen with CORS. This can be caused by redirecting or blocking a CO
         }
 
         .container {
-            display: flex;
-            align-items: center;
-            gap: 50px; /* Space between the two boxes */
-        }
-
-        .text-box {
-            background-color: white;
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            text-align: center;
-            width: 200px;
-            height: 100px;
+            position: relative;
+            width: 80%; /* Adjust as needed */
+            max-width: 800px; /* Adjust as needed */
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .pointing-box {
-            position: relative;
+        .centered-box {
+            background-color: #fff;
+            border: 2px solid #333;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1; /* Ensure it's above the pointer */
         }
 
-        .pointing-box::before {
-            content: '';
+        .pointing-box {
             position: absolute;
-            right: -20px; /* Position the pointer to the right of the box */
+            left: 0; /* Position to the left of the centered box */
             top: 50%;
             transform: translateY(-50%);
-            width: 0;
-            height: 0;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            border-left: 20px solid #ccc; /* Color of the pointer */
-            z-index: 1; /* Ensure pointer is above the box */
+            background-color: #e0f7fa;
+            border: 1px solid #00bcd4;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            white-space: nowrap; /* Prevent text from wrapping */
         }
 
         .pointing-box::after {
             content: '';
             position: absolute;
-            right: -19px; /* Adjust slightly for border overlap */
+            right: -10px; /* Position the arrow to the right of the pointing box */
             top: 50%;
             transform: translateY(-50%);
             width: 0;
             height: 0;
             border-top: 10px solid transparent;
             border-bottom: 10px solid transparent;
-            border-left: 20px solid white; /* Inner color of the pointer */
-            z-index: 2; /* Ensure inner part of pointer is above outer part */
+            border-left: 10px solid #00bcd4; /* Color of the arrow */
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="text-box pointing-box">
-            <p>Pointing Text Box</p>
+        <div class="centered-box">
+            <h2>This is the Centered Box</h2>
+            <p>Some text content for the centered box.</p>
         </div>
-        <div class="text-box">
-            <p>Centered Text Box</p>
+        <div class="pointing-box">
+            <p>This box points to the center.</p>
         </div>
     </div>
 </body>
 </html>
+
+
+<!-- Rectengle box -->
+
 <!-- End of rectengle box -->
 
 

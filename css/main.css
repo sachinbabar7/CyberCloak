@@ -318,7 +318,7 @@ header.title {
     }
 }
 
-pre > code {
+pre>code {
     white-space: pre;
     word-wrap: initial;
     word-break: initial;

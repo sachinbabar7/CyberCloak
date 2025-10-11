@@ -35,8 +35,29 @@
 #a well-written meta description can significantly influence a user's decision to click on a search result,
 #thereby impacting click-through rates.-->
 
+<style>
+        /* Default styles for all screen sizes */
+        .container-size {
+          display: flex;
+        }
+
+        /* Styles for screens 600px and wider */
+        @media (min-width: 600px) {
+          .container-size {
+            flex-direction: row; /* Arrange items in a row */
+          }
+        }
+
+        /* Styles for screens smaller than 600px */
+        @media (max-width: 599px) {
+          .container-size {
+            flex-direction: column; /* Arrange items in a column */
+          }
+        }
+</style>
+
 <head>
-    <meta name=viewport content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset=utf-8>
     <meta http-equiv=X-UA-Compatible content="IE=edge">
     <meta name=description content="Practical Cybersecurity Blog">

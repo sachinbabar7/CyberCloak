@@ -7,7 +7,7 @@
     <meta http-equiv=X-UA-Compatible content="IE=edge">
     <meta name=description content="Practical Cybersecurity Blog">
     <meta name=keywords content="cybersecurity,infosec,bug-bounty,bugbounty,SOC,CTI,VM,Pentest,Cyber Defense">
-    <title>Cyber Frogy - (SIEM) Advanced Detection Engineering</title>
+    <title>Cyber Frogy - (CISSP) Advanced Detection Engineering</title>
     <meta name=generator content="Hugo 0.150.0">
     <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css>
     <link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700">
@@ -47,11 +47,11 @@
             <div class="text-justify content">
                 <nav id=TableOfContents>
                     <ul>
-                        <li><a href=#phase-1---siem-architecture><strong>Security and Risk Management</strong></a>
+                        <li><a href=#Domain1><strong>Security and Risk Management</strong></a>
                             <ul>
-                                <li><a href=#state-of-the-siem--industry-signals>CIA</a></li>
+                                <li><a href=#CIA-Triad>5 Pillars of Information Security</a></li>
                                 <li><a href=#state-of-the-siem--industry-signals>Least Privilege</a></li>
-                                <li><a href=#compliance-vs-tactical-siem>Security Governance</a></li>
+                                <li><a href=#compliance-vs-tactical-siem>Security Governance Principles</a></li>
                                 <li><a href=#siem-planning--data-strategy>Framework - COBIT and ITIL</a></li>
                                 <li><a href=#collection-options>Compliance with Legal and Regulatory requirements</a></li>
                                 <li><a href=#aggregation-parsing--enrichment>GDPR, HIPAA, FISMA, SOX</a></li>
@@ -81,7 +81,7 @@
                 <p><strong>OPEN IMAGE IN A NEW TAB AND IT WILL BE THE HIGH RESOLUTION IMAGE</strong></p>
                 <center><img src=/images/advanced-detection-engineering.png width=1300></center>
                 </br>
-                <h2 id=phase-1---siem-architecture>Phase 1 - SIEM Architecture</h2>
+                <h2 id=Domain1>Phase 1 - SIEM Architecture</h2>
                 <ul>
                     <li><strong>Problem statement:</strong> Detection capability lags risk tolerance; people and process, not tools, are the core gap. Multiple studies and course narrative reinforce this.</li>
                     <li><strong>Tactical vs compliance SIEM:</strong> Compliance unlocks budget but bloats data; tactical SIEM is lean, tuned, evolving, and focused on detection value.</li>
@@ -91,13 +91,18 @@
                     <li><strong>Common pitfalls:</strong> No roadmap; over-collection without analysis; under-resourced teams; no use-cases.</li>
                 </ul>
                 <hr>
-                <h3 id=state-of-the-siem--industry-signals>State of the SIEM & Industry Signals</h3>
+                <h3 id=CIA-Triad>5 Pillars of Information Security</h3>
                 <ul>
-                    <li>Capability gaps persist across industries; skepticism is healthy, but patterns are consistent.</li>
-                    <li>People and processes score worst in maturity assessments.</li>
+                    <li>CIA Triad - Confidentiality, Integrity & Availability</li>
+                    <li>Authenticity & Non-Repudiation.</li>
                 </ul>
-                <p><strong>Key takeaway:</strong> Hire + grow staff; collect the right data; adopt tools that support analyst workflow. (MITRE “11 Strategies”).</p>
-                <p><strong>Aporoach:</strong><br>People/Process deficits → need hiring & training + repeatable processes → enables tactical (not just compliant) SIEM that maintains detection fidelity.</p>
+                <p><strong>Key takeaway:</strong>CIA Triad-> Primary GOAL and OBJECTIVE of any security infra.</p>
+                <p><strong>Key takeaway:</strong>Security controls, Vulnerabilities & Risk evaluated to address CIA Triad.</p>
+                <ul>
+                    <li>Confidentiality</li>
+                </ul>
+                <p><strong>Aporoach:</strong><br>Prevent OR minimize unauthorized access to data.</p>
+                <p><strong>Aporoach:</strong><br>Voilations can occur from human error, oversigh or ineptitude resulting unauthorized disclosure of sensitive or confidential information.</p>
                 <hr>
                 <h3 id=compliance-vs-tactical-siem>Compliance vs. Tactical SIEM</h3>
                 <ul>

@@ -149,16 +149,10 @@
                     <li>Industry Guidelines</li>
                     <li>License Requirements</li>
                 </ul>
-                <p><strong></strong></p>
-                <ul>
-                    <li>EPD = Events Per Day → the total number of log events you collect in a 24-hour period.</li>
-                    <li>EPS = Events Per Second → the rate at which events are coming in per second.</li>
-                    <li>Conversion: divide EPD by 86,400 (the number of seconds in a day) to get the average EPS.</li>
-                    <li>Padding (2–3×): because traffic isn’t constant it spikes during business hours, logons, patch cycles, etc. You need headroom so the system doesn’t drop logs during peaks.</li>
-                    <li>Why not vendor EPS tables? → Generic estimates vary wildly and rarely match your environment. It’s better to run a proof-of-concept (POC) or script your own counts from real logs.</li>
-                </ul>
-                <p><strong>Storage planning:</strong><br>POC yields best accuracy; else use padded constants (~300B/firewall, ~700B/Windows event). Tier hot vs warm (aim ≥7–30 days hot).</p>
-                <p><strong>Approach:</strong><br>Data strategy ↔ EPS/Storage ↔ Broker need (burst handling) ↔ Alert fidelity (less noise → better rules).</p>
+                <p><strong>Security is Business Operation & organization process.</strong></p>
+                <p><strong>Security framework & Governanac:</strong></p>
+                    <ul> NIST SP 800-53</ul>
+                    <ul> NIST SP 800-100</ul>
                 <hr>
                 <h3 id=collection-options>Collection Options</h3>
                 <ul>

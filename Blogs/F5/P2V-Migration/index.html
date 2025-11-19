@@ -68,7 +68,15 @@
                 </br>
                 <h2 id=Command-UCS-backup>>Take UCS backup from old box</h2>
                 <ul>
-                    <li><strong>Confidentiality:</strong> Detection capability lags risk tolerance; people and process, not tools, are the core gap. Multiple studies and course narrative reinforce this.</li>
+                    <li><strong>Backup the UCS file:</strong></li>
+                    <p>[root@bigip1:Active:Standalonoe] confiig # tmsh save sys ucs $(echo $HOSTNAME | cut -d'.' -f1)-$(date +%H%M-%m%d%y)</p>
+                    <li><strong>UCS path:</strong></li>
+                    <p> /var/local/ucs</p>
+                    <li><strong>SCP file from F5 to any jump server to retreive using WinSCP or FileZilla</strong></li>
+                    <p>scp admin@hostname:/var/local/ucs/HOSTNAME-045819NOV2025.ucs /home/</p>
+                    <p>OR</p>
+                    <p>scp -O admin@hostname:/var/local/ucs/HOSTNAME-045819NOV2025.ucs /home/</p>
+                    <li><strong>Copy file from local JUMP host server to local machine using WINSCP</strong></li>
                 </ul>
                 <hr>
                 
@@ -82,5 +90,6 @@
                     <li><strong>New F5, paste the key</strong></li>
                     <p>[root@bigip1:Active:Standalonoe] confiig # f5mku -r tpWnKcudbfdfdlerTFSDSFpkFSDF</p>
                     <li>Verify master key is same on both system.</li>
+                
                 </ul>
                 <hr>

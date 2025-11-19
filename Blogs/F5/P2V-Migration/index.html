@@ -55,7 +55,7 @@
                         <li><a href=#Command-Master-key>Configure network (vlan/trunk) on new box</a></li>
                         <li><a href=#Command-Master-key>Configure system provisioning on new box</a></li>
                         <li><a href=#Command-Master-key>Restore Master-Key on new box</a></li>
-                        <li><a href=#Command-Master-key>Restore UCS on new box</a></li>
+                        <li><a href=#Command-Restore-UCS>Restore UCS on new box</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -91,5 +91,17 @@
                     <p>[root@bigip1:Active:Standalonoe] confiig # f5mku -r tpWnKcudbfdfdlerTFSDSFpkFSDF</p>
                     <li>Verify master key is same on both system.</li>
                 
+                </ul>
+                <hr>
+
+                 </br>
+                <h2 id=Command-Restore-UCS>>Restore UCS file</h2>
+                <ul>
+                    <li><strong>New F5 box, load the UCS. UCS file contain license also, since we load license in initial stage, we enter "no-license" while restoring UCS; it simply ignore the license file from UCS</strong></li>
+                    <p>[root@bigip1:Active:Standalonoe] confiig # tmsh load sys ucs /var/tmp/HOSTNAME-045819NOV2025.ucs no-license platform-migrate</p>
+                    <li><strong>Verify the UCS</strong></li>
+                    <p>[root@bigip1:Active:Standalonoe] confiig # load sys config verify</p>
+                    <li>Save config.</li>
+                    <p>[root@bigip1:Active:Standalonoe] confiig # save sys config</p>     
                 </ul>
                 <hr>

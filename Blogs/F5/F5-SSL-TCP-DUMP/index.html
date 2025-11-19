@@ -46,62 +46,34 @@
             <div class="text-justify content">
                 <nav id=TableOfContents>
                     <ul>
-                        <li><a href=#P2V-Migration><strong>LTM - Physical to Virtual Migration</strong></a>
+                        <li><a><strong>F5 - Tshoot using packet capture</strong></a>
                             <ul>
-                        <li><a href=#Command-UCS-backup>Take UCS backup from old box</a></li>
-                        <li><a href=#Command-Master-key>Master key backup</a></li>
-                        <li><a href=#Command-Master-key>Configure MGMT on new box</a></li>
-                        <li><a href=#Command-Master-key>Configure licennse on new box</a></li>
-                        <li><a href=#Command-Master-key>Configure network (vlan/trunk) on new box</a></li>
-                        <li><a href=#Command-Master-key>Configure system provisioning on new box</a></li>
-                        <li><a href=#Command-Master-key>Restore Master-Key on new box</a></li>
-                        <li><a href=#Command-Restore-UCS>Restore UCS on new box</a></li>
+                                <li><a href=#SSL>SSL dump command</a></li>
+                                <li><a href=#TCP>TCP dump command</a></li>
                             </ul>
                         </li>
                     </ul>
                 </nav>
                 <h2 id=introduction>Introduction</h2>
-                <p>Hardware to virtual edition - Through put 200mbps.</p>
-                <p>The summary of entire process is:</p>
+                <p>Command for troubleshooting</p>
+                <p>Please check below list of commands useful during triagee:</p>
                 <p><strong>OPEN IMAGE IN A NEW TAB AND IT WILL BE THE HIGH RESOLUTION IMAGE</strong></p>
                 <center><img src=/images/advanced-detection-engineering.png width=1300></center>
                 </br>
-                <h2 id=Command-UCS-backup>>Take UCS backup from old box</h2>
+                <h2 id=SSL>>SSLDUMP</h2>
                 <ul>
-                    <li><strong>Backup the UCS file:</strong></li>
-                    <p>[root@bigip1:Active:Standalonoe] confiig # tmsh save sys ucs $(echo $HOSTNAME | cut -d'.' -f1)-$(date +%H%M-%m%d%y)</p>
-                    <li><strong>UCS path:</strong></li>
-                    <p> /var/local/ucs</p>
-                    <li><strong>SCP file from F5 to any jump server to retreive using WinSCP or FileZilla</strong></li>
-                    <p>scp admin@hostname:/var/local/ucs/HOSTNAME-045819NOV2025.ucs /home/</p>
-                    <p>OR</p>
-                    <p>scp -O admin@hostname:/var/local/ucs/HOSTNAME-045819NOV2025.ucs /home/</p>
-                    <li><strong>Copy file from local JUMP host server to local machine using WINSCP</strong></li>
+                    <li><strong>Commaand to save pcap using SSLDUMP utility :</strong></li>
+                    <p>[root@bigip1:Active:Standalonoe] confiig # ssldump -Nr /var/tmp/filename.pcap</p>
                 </ul>
                 <hr>
                 
 
                 </br>
-                <h2 id=Command-Master-key>>Master key unit (MKU) backup</h2>
+                <h2 id=TCP>>Commaand to save pcap using TCPDUMP utility :</h2>
                 <ul>
                     <li><strong>Old F5, Copy the key</strong></li>
                     <p>[root@bigip1:Active:Standalonoe] confiig # f5mku -K</p>
-                    <p>tpWnKcudbfdfdlerTFSDSFpkFSDF</p>                            
-                    <li><strong>New F5, paste the key</strong></li>
-                    <p>[root@bigip1:Active:Standalonoe] confiig # f5mku -r tpWnKcudbfdfdlerTFSDSFpkFSDF</p>
-                    <li>Verify master key is same on both system.</li>
-                
                 </ul>
                 <hr>
 
-                 </br>
-                <h2 id=Command-Restore-UCS>>Restore UCS file</h2>
-                <ul>
-                    <li><strong>New F5 box, load the UCS. UCS file contain license also, since we loaded license in initial stage, we enter "no-license" while restoring UCS; it simply ignore the license file from UCS</strong></li>
-                    <p>[root@bigip1:Active:Standalonoe] confiig # tmsh load sys ucs /var/tmp/HOSTNAME-045819NOV2025.ucs no-license platform-migrate</p>
-                    <li><strong>Verify the UCS</strong></li>
-                    <p>[root@bigip1:Active:Standalonoe] confiig # load sys config verify</p>
-                    <li>Save config.</li>
-                    <p>[root@bigip1:Active:Standalonoe] confiig # save sys config</p>     
-                </ul>
-                <hr>
+              

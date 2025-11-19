@@ -50,7 +50,12 @@
                             <ul>
                         <li><a href=#Command-UCS-backup>Take UCS backup from old box</a></li>
                         <li><a href=#Command-Master-key>Master key backup</a></li>
-                        <li><a href=#Command-Master-key>Master key backup</a></li>
+                        <li><a href=#Command-Master-key>Configure MGMT on new box</a></li>
+                        <li><a href=#Command-Master-key>Configure licennse on new box</a></li>
+                        <li><a href=#Command-Master-key>Configure network (vlan/trunk) on new box</a></li>
+                        <li><a href=#Command-Master-key>Configure system provisioning on new box</a></li>
+                        <li><a href=#Command-Master-key>Restore Master-Key on new box</a></li>
+                        <li><a href=#Command-Master-key>Restore UCS on new box</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -72,10 +77,10 @@
                 <h2 id=Command-Master-key>>Master key unit (MKU) backup</h2>
                 <ul>
                     <li><strong>Old F5, Copy the key</strong></li>
-                <p>[root@bigip1:Active:Standalonoe] confiig # f5mku -K</p>
-                <p>tpWnKcudbfdfdlerTFSDSFpkFSDF</p>                            
-                <li><strong>New F5, paste the key</strong></li>
-                <p>[root@bigip1:Active:Standalonoe] confiig # f5mku -r tpWnKcudbfdfdlerTFSDSFpkFSDF</p>
-                <li>Verify master key is same on both system.</li>
+                    <p>[root@bigip1:Active:Standalonoe] confiig # f5mku -K</p>
+                    <p>tpWnKcudbfdfdlerTFSDSFpkFSDF</p>                            
+                    <li><strong>New F5, paste the key</strong></li>
+                    <p>[root@bigip1:Active:Standalonoe] confiig # f5mku -r tpWnKcudbfdfdlerTFSDSFpkFSDF</p>
+                    <li>Verify master key is same on both system.</li>
                 </ul>
                 <hr>

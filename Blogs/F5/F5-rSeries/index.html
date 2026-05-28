@@ -35,7 +35,7 @@
             <h4><a class=menu-item href=/disclaimer>Disclaimer</a></h4>
         </section>
         <header class="text-start title">
-            <h1 class=title>TCP / SSL dump utility</h1>
+            <h1 class=title>Key notes rSeries f5 troubleshooting</h1>
         </header>
         <section id=category-pane class=meta>
             <div class="d-flex flex-column flex-md-row justify-content-between">
@@ -48,30 +48,26 @@
                     <ul>
                         <li><a><strong>F5 - Tshoot using packet capture</strong></a>
                             <ul>
-                                <li><a href=#SSL>SSL dump command</a></li>
-                                <li><a href=#TCP>TCP dump command</a></li>
+                                <li><a href=#Key>Key details</a></li>
                             </ul>
                         </li>
                     </ul>
                 </nav>
-                <h2 id=introduction>Introduction</h2>
-                <p>Command for troubleshooting</p>
-                <p>Please check below list of commands useful during triage:</p>
                 </br>
-                <h2 id=SSL>>SSLDUMP</h2>
+                <h2 id=Key>Key details</h2>
                 <ul>
-                    <li><strong>Commaand to save pcap using SSLDUMP utility :</strong></li>
-                    <p>[root@bigip1:Active:Standalonoe] confiig # ssldump -Nr /var/tmp/filename.pcap</p>
+                    <li><strong>rSeries hardwares:</strong></li>
+                    <p>Following are the available hardware models:</p>
+                        <li>r10000 Series</li>
+                            <p>Multi-Tenancy: 36 Tenants</p>
+                            <p>Hardware Offload SSL/TLS:</p>
+                            <p>200K TPS (RSA 2k keys)</p>
+                            <p></p>140K TPS (ECDHE-ECDSA P-256)</p>
+                            <p>110K TPS (ECDHE P-256-RSA 2k)</p>
+                            <p>95 Gbps bulk encryption</p>
                 </ul>
                 <hr>
-                
-
-                </br>
-                <h2 id=TCP>>Commaand to save pcap using TCPDUMP utility :</h2>
-                <ul>
-                    <li><strong>Old F5, Copy the key</strong></li>
-                    <p>[root@bigip1:Active:Standalonoe] confiig # f5mku -K</p>
-                </ul>
-                <hr>
+            </div>
+        </section>          
 
               

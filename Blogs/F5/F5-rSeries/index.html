@@ -63,7 +63,6 @@
 <li>Modern SSL Cipher Support in Hardware</li>
 <li>Higher-Speed Interfaces and New 25Gb Support</li>
 <li>Kubernetes-based platform layer (called F5OS)</li>
-<img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/F5/F5-rSeries/F5_rSeries_Platform_Architecture.png" alt="...">
                 <ul>
                     <li><strong>rSeries hardwares:</strong></li>
                     <p>Following are the available hardware models:</p>
@@ -73,8 +72,48 @@
                             <p>Multi-Tenancy: 18 Tenants, Hardware Offload SSL/TLS: 80K TPS (RSA 2k keys), 50K TPS (ECDHE-ECDSA P-256), 50K TPS (ECDHE P-256-RSA 2k), 45 Gbps bulk encryption</p>
                         <li>r4000 Series - Small-to-Medium Enterprise</li>
                             <p>Multi-Tenancy: 4 Tenants, Hardware Offload SSL/TLS: 45K TPS (RSA 2k keys), 20K TPS (ECDHE-ECDSA P-256), 20K TPS (ECDHE P-256-RSA 2k), 25 Gbps bulk encryption</p>
+                        <li>r2000 Series - Small Enterprise</li>
+                            <p>Multi-Tenancy: 1 Tenants</p>
                         </ul>
                 <hr>
+<h2>rSeries Hardware Architecture</h2>
+<img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/F5/F5-rSeries/F5_rSeries_Hardware_Arch.png" alt="...">
+<li> Modern FPGAs (Field Programmable Gate Arrays)</li>
+<p>FPGA sits at the heart of the traffic passing through the appliance, inspecting traffic, making critical traffic management decisions, and offloading protocol and security processing.</p>>
+<p><strong>Latest Intel CPUs</strong>: Faster and more efficient in processing TMM traffic, control plane, device management.</p>
+<p>rSeries has modern SSL offload hardware and support for ECC ciphers, resulting in reduced CPU consumption for SSL use cases.</p>
+
+
+
+
+                <h2 Kubernetes-Based Platform Software Layer: F5OS</h2>
+                                    <img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/F5/F5-rSeries/F5_rSeries_Platform_Architecture.png" alt="...">
+                    <li>Open source kubernetes distribution.</li>
+                        <p>rSeries utilizes K3S</p>
+                        <p>VELOS utilizes K8S</p>
+                        <li>F5OS allows rSeries to run different types of tenants within the same appliance, example:</li>
+                        <p>BIG-IP TMOS tenants (specific software releases v14.1.x, x15.1.5, v17.1.x)</p>
+                        <p>Approved 3rd party tenants (future possibility)</p>
+                    <li>Tentant similar to vCMP GUEST running on VIPRION OR iSeries</li>
+                
+                <h2>Kubernetes Control Plane</h2>
+                 <img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/F5/F5-rSeries/F5_rSeries_Kubernetes_Control_Plane.png" alt="...">
+                    <li>A combination of Docker Compose and Kubernetes is used within the F5OS rSeries platform layer.</li>
+                    <p>The Docker Compose component brings up the software stacks during startup process.</p>
+                    <p>Then the Kubernetes component takes over and is responsible for deploying workloads to the proper CPU’s</p>
+                    <li>Kubernetes: rSeries utilizes an open source Kubernetes distribution called K3S.</li>
+
+            <h2>Multitenancy - HA Relationship</h2>
+                 <img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/F5/F5-rSeries/F5_rSeries_HA.png" alt="...">
+                 <li>When configuring High Availability (HA) between two rSeries appliances.</li>
+                 <p>NO "HA relationship" or awareness across systems at the F5OS layer.</p>
+                 <p>HA is configured at the BIG-IP tenant level using Device Service Clustering, similar to how HA is configured between vCMP guests in separate iSeries appliances today.</p>
+    
+
+
+    <h2>Licensing & PAYG (Pay-As-You-Grow)</h2>
+    <li>F5 now offers 3 PAYG tiers/licensing options for both the 5000 and 10000 models.</li>
+    <p>/Entry level r5600; as demand increase more CPU resources by upgrading the license to r5800 OR r5900 via simple license upgrade process.</p>
             </div>
         </section>          
 

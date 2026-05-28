@@ -53,9 +53,10 @@ li {
 }
 .container {
   overflow: auto;
-  max-width: auto;
+  max-width: 1200px;
   padding: 0 15px;
   text-align: justify;
+  margin: 0 auto;
 }
 .content {
   margin-top: 10px;
@@ -270,4 +271,43 @@ pre > code {
   white-space: pre;
   word-wrap: initial;
   word-break: initial;
+}
+
+
+/* Mobile Responsive Media Queries */
+
+/* Tablet and larger screens */
+@media (max-width: 768px) {
+  .main-menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .menu-item {
+    font-size: 16px;
+  }
+  
+  .list-entry {
+    font-size: 18px;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+  .menu-item {
+    font-size: 14px;
+  }
+  
+  .headshot {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .list-entry {
+    font-size: 16px;
+  }
+  
+  .intro {
+    font-size: 16px;
+  }
 }

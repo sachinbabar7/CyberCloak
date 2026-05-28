@@ -48,14 +48,18 @@
                     <ul>
                         <li><a><strong>F5 - rSeries Topics</strong></a>
                             <ul>
-                                <li><a href=#Key>Key details</a></li>
+                                <li><a href=#Key>How it Works</a></li>
+                                <li><a href=#Architecture>How it Works</a></li>
                                 <li><a href=#TSHOOT>Troubleshooting</a></li>
                             </ul>
                         </li>
                     </ul>
                 </nav>
                 </br>
+                                <hr>
+
                 <h2 id=Key>How rSeries Hardware Works</h2>
+                                <hr>
                 <p> <strong>Next-generation hardware + microservices-based architecture</strong></p>
                 <p> rSeries platforms have many advantages over the current iSeries architecture.</p>
 <li>More Performance per RU</li>
@@ -77,7 +81,9 @@
                             <p>Multi-Tenancy: 1 Tenants</p>
                         </ul>
                 <hr>
-<h2>rSeries Hardware Architecture</h2>
+<h2 id=Architecture>rSeries Hardware Architecture</h2>
+                <hr>
+
 <img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/F5/F5-rSeries/F5_rSeries_Hardware_Arch.png" alt="...">
 <li> Modern FPGAs (Field Programmable Gate Arrays)</li>
 <p>FPGA sits at the heart of the traffic passing through the appliance, inspecting traffic, making critical traffic management decisions, and offloading protocol and security processing.</p>
@@ -89,6 +95,8 @@
                 <hr>
 
                 <h2> Kubernetes-Based Platform Software Layer: F5OS </h2> 
+                                <hr>
+
                                     <img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/F5/F5-rSeries/F5_rSeries_Platform_Architecture.png" alt="...">
                     <li>Open source kubernetes distribution.</li>
                         <p>rSeries utilizes K3S</p>
@@ -100,6 +108,8 @@
                 <hr>
 
                 <h2>Kubernetes Control Plane</h2>
+                                <hr>
+
                  <img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/F5/F5-rSeries/F5_rSeries_Kubernetes_Control_Plane.png" alt="...">
                     <li>A combination of Docker Compose and Kubernetes is used within the F5OS rSeries platform layer.</li>
                     <p>The Docker Compose component brings up the software stacks during startup process.</p>
@@ -109,6 +119,8 @@
                                     <hr>
 
             <h2>Multitenancy - HA Relationship</h2>
+                            <hr>
+
                  <img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/F5/F5-rSeries/F5_rSeries_HA.png" alt="...">
                  <li>When configuring High Availability (HA) between two rSeries appliances.</li>
                  <p>NO "HA relationship" or awareness across systems at the F5OS layer.</p>
@@ -118,11 +130,14 @@
 
 
     <h2>Licensing & PAYG (Pay-As-You-Grow)</h2>
+                    <hr>
+
     <li>F5 now offers 3 PAYG tiers/licensing options for both the 5000 and 10000 models.</li>
     <p>Entry level r5600; as demand increase more CPU resources by upgrading the license to r5800 OR r5900 via simple license upgrade process.</p>
 
-
-                <h2 id=TSHOOT>Issue encountered so far..</h2>
+                <hr>
+                    <h2 id=TSHOOT>Issue encountered so far..</h2>
+                <hr>
 
 
 

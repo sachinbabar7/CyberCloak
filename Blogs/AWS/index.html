@@ -58,10 +58,20 @@
                 </br>
                                 <hr>
 
-                <h2 id=Key>PART A: How rSeries Hardware Works</h2>
+                <h2 id=Key>PART A: Multiple AWS Accounts/h2>
                                 <hr>
-                <p> <strong>Next-generation hardware + microservices-based architecture</strong></p>
-                <p> rSeries platforms have many advantages over the current iSeries architecture.</p>
+                <p> <strong>  Ingress Account  </strong> : Handles incoming traffic from internet </p>
+                <p> <strong>  Egress Account  </strong> : Handles outgoing traffic to internet </p>
+                <p> <strong>  Inspection Account  </strong> : Security inspection of outgoing traffic to internet </p>
+                <p> <strong>  Workload Account  </strong> : Your actual application (compute + database) </p>
+                <p> <strong>  Firewall management Account  </strong> : Controls firewall rules centrally </p>
+                <p> <strong>  Certificate account  </strong> : Manages SSL/TLS certificates </p>
+
+                <h2 id=Key>PART B: VPC and Subnets/h2>
+                                <hr>
+
+                <p> <strong>  Ingress Account  </strong> : Handles incoming traffic from internet </p>
+
 <li>More Performance per RU</li>
 
 

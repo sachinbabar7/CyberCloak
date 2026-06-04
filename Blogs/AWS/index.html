@@ -66,16 +66,36 @@
                 <p> <strong>  Workload Account  </strong> : Your actual application (compute + database) </p>
                 <p> <strong>  Firewall management Account  </strong> : Controls firewall rules centrally </p>
                 <p> <strong>  Certificate account  </strong> : Manages SSL/TLS certificates </p>
+                                <hr>
 
                 <h2 id=Key>PART B: VPC and Subnets</h2>
                                 <hr>
                 <p> <strong>  Public Subnets  </strong> : Connected to internet </p>
                 <p> <strong>  Private Subnets  </strong> : Not directly connected to internet </p>
                 <p> <strong>  Transit Subnets  </strong> : used to connect to <strong>Transit Gateway (TGW) </strong> </p>
+                                <hr>
 
             <h2 id=Key>PART C: Transit Gateway (TGW) - the Core Network Hub</h2>
                     <p> A centeral router connecting all VPCs together </p>
                                     <img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/AWS/TGW.jpg" alt="...">
+                                    <li>Central Control</li>
+                                    <li>Scalable</li>
+                                    <li>Cleaner routing</li>
+                                                          <hr>
+            <h2 id=Key>PART D: Inspection VPC (Security Layer)</h2>
+                    <p> traffic is inspected before going anywhere </p>
+                                    <li>AWS network firewall - Blocks malicious traffic, security rules, filters traffic</li>
+                                    <li>Private + transit subnets</li>
+                                                          <hr>
+            <h2 id=Key>PART E: Ingress VPC (Incoming traffic from Internet)</h2>
+                    <p> Flow inside ingress </p>
+                    <p> Internet ==> AWS WAF (filters attacks) ==> AWS Network Firewall ==> Application Load Balancer (ALB) ==> Transit Gateway (TGW) ==> Workload VPC </p>
+                    <p> Components</p>
+                    <li> WAF -> block web attacks</li>
+                    <li> Shield Advanced - DDoS protection</li>
+                    <li> ALB => Distribute traffic to backend </li>
+                                                          <hr>
+
 <li>More Performance per RU</li>
 
 

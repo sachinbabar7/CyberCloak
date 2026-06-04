@@ -87,7 +87,7 @@
                                     <li>AWS network firewall - Blocks malicious traffic, security rules, filters traffic</li>
                                     <li>Private + transit subnets</li>
                                                           <hr>
-            <h2 id=Key>PART E: Ingress VPC (Incoming traffic from Internet)</h2>
+            <h2 id=Key>PART E: Ingress VPC (Incoming traffic from Internet) = NO DIRECT ACCESS TO WORKLOAD VPC</h2>
                     <p> Flow inside ingress </p>
                     <p> Internet ==> AWS WAF (filters attacks) ==> AWS Network Firewall ==> Application Load Balancer (ALB) ==> Transit Gateway (TGW) ==> Workload VPC </p>
                     <p> Components</p>
@@ -95,12 +95,44 @@
                     <li> Shield Advanced - DDoS protection</li>
                     <li> ALB => Distribute traffic to backend </li>
                                                           <hr>
+            <h2 id=Key>PART F: Egress VPC (Outgoing traffic to Internet) </h2>
+                    <p> APIs/Updates/External services </p> 
+                    <p> Flow inside egress </p>
+                    <p> Workload VPC ==> Transit Gateway (TGW) ==> Egress VPC ==> AWS Network Firewall ==> NAT Gateway ==> Internet </p>
+                                                          <hr>
+            <h2 id=Key>PART G: Workload VPC (Application traffic) </h2>
+                    <p> Components</p>
+                    <li> EC2 instances (containers)</li>
+                    <li> ALB ==> routable subnet</li>
+                    <li> Database ==> Fully isolated/ no direct access to internet / non-routable subnet</li>
+                    
+                                                          <hr>
+            <h2 id=Key>PART H: Certificate & TLS inspection </h2>                   
+                    <p> Certificate management </p>
+                    <p> Certificate account ==> ACM (AWS Certificate Manager) ==> TLS inspection in AWS Network Firewall </p>
+                                                          <hr>
+            <h2 id=Key> End to End Traffic flow </h2>     
+            <p> <strong> CASE 1: Internet to Application </strong> </p>
+            <p> Internet ==> Ingress VPC ==> WAF ==> Network Firewall ==> ALB ==> TGW ==> Workload VPC ==> App (compute) ==> Database </p>
+                                                          <hr>
+            <p> <strong> CASE 2: Application to external API </strong> </p>
+            <p> Workload VPC ==> Transit Gateway (TGW) ==> Egress VPC ==> AWS Network Firewall ==> NAT Gateway ==> Internet </p>
+                                                          <hr>  
 
-<li>More Performance per RU</li>
+            <h2 id=Key> Design considerations </h2>
+            <li> <strong>Zero Trust Network Access (ZTNA)</strong> </li>
+            <li> <strong>Centralize Security in Inspection VPC</strong> </li>
+            <li> <strong>Least Privilege Access</strong> => Only required connections are allowed </li>
+            <li> <strong>Separation of Duties</strong> => Network, Security & Apps teams have separate accounts </li>
 
+                                                          <hr>  
+            <h2 id=Key> Simple Architecture Diagram </h2>
+<img> src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/AWS/Simple Architecture Diagram.jpg" alt="...">
+                                                          <hr>
 
-
+            
             </div>
         </section>          
+
 
               

@@ -127,9 +127,11 @@
 
                                                           <hr>  
             <h2 id=Key> Simple Architecture Diagram </h2>
-<img> src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/AWS/Simple Architecture Diagram.jpg" alt="...">
+            <img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/AWS/Simple Architecture Diagram.jpg" alt="...">
                                                           <hr>
             <p> <strong> STEP 1: Real AWS Implementation </strong> </p>
+                                                                      <hr>  
+
             <li>  Create VPCs  </li>
                     <p>You need 4 VPCs:
                         <li> Ingress VPC => 10.0.1.0/24</li>
@@ -137,13 +139,36 @@
                         <li> Inspection VPC => 10.0.3.0/24</li>
                         <li> Workload VPC => 10.0.4.0/24</li>
                     </p>
+                                                                              <hr>  
+
             <li>  Create subnets  </li>
+                                                                      <hr>  
+
                     <p>Public subnets for internet-facing resources, private subnets for internal resources </p>
                     <p>Private subnets for internal resources </p>
                     <p>Transit subnets for connecting to Transit Gateway (TGW) </p>
-                    
+                                                          <hr>  
             <li>  Create TGW  </li>
+                    <p> 1 TGW, attach to all VPCs</p>
+                    <p> TGW attachments:
+                        <li> Ingress VPC => Transit subnet</li>
+                        <li> Egress VPC => Transit subnet</li>
+                        <li> Inspection VPC => Transit subnet</li>
+                        <li> Workload VPC => Transit subnet</li>
+                    </p>
+                                                          <hr>  
+            <li>  Routing:  </li>
+                    <p> Workload VPC Route Table: 0.0.0.0/0 => TGW</p>
+                    <p> Ingress VPC Route Table:  10.0.0.4.0/24 => TGW</p>
+                    <p> Egress VPC Route Table:  10.0.0.5.0/24 => TGW</p>
+                                                                              <hr>  
             <li>  Create firewalls  </li>
+                    <p>Ingress: ALB, AWS WAF, Sheild Advanced</p>
+                    <p>Inspection: AWS Network Firewall</p>
+                    <p>Egress: NAT Gateway</p>
+                    <p>Workload: Security groups, NACLs fpr EC2/containers/Database (RDS)</p>
+                                                                              <hr>
+                    
             <li>  Create ALBs  </li>
             <li>  Create EC2 instances  </li>
             <li>  Create databases  </li>

@@ -168,7 +168,17 @@
                     <p>Egress: NAT Gateway</p>
                     <p>Workload: Security groups, NACLs fpr EC2/containers/Database (RDS)</p>
                                                                               <hr>
-                    
+            <h2 id=Key> Packet Flow - Debug like PRO </h2> 
+                    <p> <strong> CASE 1: User -> App </strong> </p>
+                    <p> User hits public DNS ==> Request goes to ALB in Ingress VPC ==> WAF ==> Network Firewall in Inspection VPC ==> TGW ==> Workload ALB ==> EC2 ==> EC2 query to Database </p>
+                    <p> <strong> CASE 2: App -> Internet </strong> </p>
+                    <p> EC2 send request ==> Route TGW ==> Egress VPC ==> NAT Gateway ==> Internet </p>
+                                                                              <hr>
+            <h2 id=Key> Common Issues </h2> 
+                    <p> <strong> Traffic not reaching app </strong> </p>
+                    <p> Check ALB targets, security groups, and route tables inside EC2 Console/Dashboard</p>
+                    <p> EC2 Dashboard => Under Load Balancing ==> Target Groups ==> Select Target ==> Under Registered targets ==> Health Status </p>
+
             <li>  Create ALBs  </li>
             <li>  Create EC2 instances  </li>
             <li>  Create databases  </li>

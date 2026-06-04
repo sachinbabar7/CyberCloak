@@ -129,8 +129,26 @@
             <h2 id=Key> Simple Architecture Diagram </h2>
 <img> src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/AWS/Simple Architecture Diagram.jpg" alt="...">
                                                           <hr>
-
-            
+            <p> <strong> STEP 1: Real AWS Implementation </strong> </p>
+            <li>  Create VPCs  </li>
+                    <p>You need 4 VPCs:
+                        <li> Ingress VPC => 10.0.1.0/24</li>
+                        <li> Egress VPC => 10.0.2.0/24</li>
+                        <li> Inspection VPC => 10.0.3.0/24</li>
+                        <li> Workload VPC => 10.0.4.0/24</li>
+                    </p>
+            <li>  Create subnets  </li>
+                    <p>Public subnets for internet-facing resources, private subnets for internal resources </p>
+                    <p>Private subnets for internal resources </p>
+                    <p>Transit subnets for connecting to Transit Gateway (TGW) </p>
+                    
+            <li>  Create TGW  </li>
+            <li>  Create firewalls  </li>
+            <li>  Create ALBs  </li>
+            <li>  Create EC2 instances  </li>
+            <li>  Create databases  </li>
+            <li>  Create WAF rules  </li>
+            <li>  Create certificates  </li>
             </div>
         </section>          
 

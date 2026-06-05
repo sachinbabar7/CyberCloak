@@ -84,11 +84,13 @@
                     <li>Uses "duplicate ACK". This is dual acknowledgment that's sent by the receiver if a data packet is lost. It forces quicker retransmission of lost packets.</li>
                                                 <hr>
                                                 <p> Default SureRoute setting</p>
-<img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/Akamai/SureRoute/presureroute.jpg" alt="SureRoute" class="img-fluid">
+            <img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/Akamai/SureRoute/presureroute.jpg" alt="SureRoute" class="img-fluid">
                                                 <hr>
                                                 <p> Custom Behavior SureRoute setting - Select Origin IP on Child edge server server </p>
-<img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/Akamai/SureRoute/postsureroute.png" alt="SureRoute" class="img-fluid">
+            <img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/Akamai/SureRoute/postsureroute.png" alt="SureRoute" class="img-fluid">
                                                 <hr>
+            <img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/Akamai/SureRoute/SureRouteExplain.png" alt="SureRoute" class="img-fluid">
+                                                                                     <hr>         
 <p> This feature is rarely enabled by itself. In Akamai's advanced metadata configurations, it is usually deployed as a cluster of three parameters to stabilize load-balanced origins:</p>
 <li> Fixes SureRoute handling of multiple/rotating origin IPs to prevent oscillation and route flapping</li>
 <p><strong>#<forward:cache-parent.sureroute2.force-origin-ip-from-edge>on</forward:cache-parent.sureroute2.force-origin-ip-from-edge> </strong></p>

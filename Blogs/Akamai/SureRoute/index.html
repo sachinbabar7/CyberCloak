@@ -93,7 +93,7 @@
                                                                                      <hr>         
 <p> This feature is rarely enabled by itself. In Akamai's advanced metadata configurations, it is usually deployed as a cluster of three parameters to stabilize load-balanced origins:</p>
 <li> Fixes SureRoute handling of multiple/rotating origin IPs to prevent oscillation and route flapping</li>
-<p><strong>#<forward:cache-parent.sureroute2.force-origin-ip-from-edge>on</forward:cache-parent.sureroute2.force-origin-ip-from-edge> </strong></p>
+<p><strong> &lt;forward:cache-parent.sureroute2.force-origin-ip-from-edge&gt;on&lt;forward:cache-parent.sureroute2.force-origin-ip-from-edge&gt; </strong></p>
 
 <li> Forces Akamai to use the same origin IP for all requests from a given edge server, even if the origin DNS returns multiple IPs in a round-robin fashion</li>
 <p><strong> <forward:cache-parent.sureroute2.round-robin.status>on</forward:cache-parent.sureroute2.round-robin.status> </strong></p>

@@ -7,7 +7,7 @@
     <meta http-equiv=X-UA-Compatible content="IE=edge">
     <meta name=description content="Practical Cybersecurity Blog">
     <meta name=keywords content="cybersecurity,infosec,bug-bounty,SOC,CTI,VM,Cyber Defense">
-    <title>Cyber Cloak - (AWS) Cloud Computing Fundamentals</title>
+    <title>Cyber Cloak - Akamai - CDN</title>
     <meta name=generator content="Hugo 0.150.0">
     <link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css>
     <link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Roboto+Slab:wght@400;700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700">
@@ -37,7 +37,7 @@
         </section>
         
         <header class="text-start title">
-            <h1 class=title>Key notes on AWS Cloud Computing Fundamentals</h1>
+            <h1 class=title>Akamai - CDN (Oscillation behaviour for multiple IPs / Hostnames / Datacenters going to origin server)</h1>
         </header>
         <section id=category-pane class=meta>
             <div class="d-flex flex-column flex-md-row justify-content-between">
@@ -48,7 +48,7 @@
             <div class="text-justify content">
                 <nav id=TableOfContents>
                     <ul>
-                        <li><a><strong>Akamai - Content Delivery Network</strong></a>
+                        <li><a><strong>Akamai - SureRoute</strong></a>
                             <ul>
                                 <li><a href=#Key>How it Works</a></li>
                                 <li><a href=#Architecture>Architecture</a></li>
@@ -60,10 +60,34 @@
                 </br>
                                 <hr>
 
-                <h2 id=Key>PART A: Akamai Architecture</h2>
+                <h2 id=Key>Akamai SureRoute</h2>
                                 <hr>
+                <p>SureRoute is a feature provided by Akamai that helps optimize the delivery of content by selecting the best route for data to travel from the origin server to the end user. It is designed to improve performance and reliability by dynamically choosing the most efficient path for data transmission.</p>
 
+                <p>SureRoute works by continuously monitoring the network conditions and performance metrics of various routes between the origin server and the end user. It uses this information to make real-time decisions about which route to use for delivering content. The goal is to minimize latency, reduce packet loss, and ensure a smooth user experience.</p>
+
+                <p>By leveraging SureRoute, Akamai can help ensure that content is delivered quickly and reliably, even in the face of network congestion or other issues that may arise along the way. This can be particularly beneficial for websites and applications that require high performance and low latency, such as streaming media, online gaming, and e-commerce platforms.</p>
+                            <hr>
+                            <img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/Akamai/SureRoute/sureroute.jpeg" alt="SureRoute" class="img-fluid">
                                 <hr>
+                <p>Observations: Application hosted (abc.com) behavior behind multi DC with GTMs/LTMs having different origin servers and edge servers load the traffic in zig-zag patter or Oscillation pattern.  </p>
+                <p> This behavior shows the one DC will have increase in traffic load compared to other DCs & when other DC pickups up, the load is unbalanced.</p>
+                <p> Traffic monitoring traffic shows the following:</p>
+                <hr>
+                <img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/Akamai/SureRoute/ZigZag.jpg" alt="SureRoute" class="img-fluid">
+                                <hr>
+                <li><strong>SureRoute is Core feature of Akamai CDN.</strong></li>
+                <li><strong>It test multiple routes between Akamai edge servers and origin servers to identify the best path.</strong></li>
+                <li><strong>It helps with Enhanced Akamai Protocol:</strong></li>
+                    <li> Increase the size of congestion window</li>
+                    <li>Use of selective acknowledgments (SACKs) to improve performance over high-latency connections</li>
+                    <li>Uses "duplicate ACK". This is dual acknowledgment that's sent by the receiver if a data packet is lost. It forces quicker retransmission of lost packets.</li>
+                                                <hr>
+<img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/Akamai/SureRoute/default-sureroute.png" alt="SureRoute" class="img-fluid">
+                                                <hr>
+
+<img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/Akamai/SureRoute/postsureroute.png" alt="SureRoute" class="img-fluid">
+                                                <hr>
 
             </div>
         </section>          

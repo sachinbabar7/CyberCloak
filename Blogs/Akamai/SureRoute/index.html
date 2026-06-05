@@ -89,8 +89,21 @@
                                                 <p> Custom Behavior SureRoute setting - Select Origin IP on Child edge server server </p>
 <img src="https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/Akamai/SureRoute/postsureroute.png" alt="SureRoute" class="img-fluid">
                                                 <hr>
+<p> This feature is rarely enabled by itself. In Akamai's advanced metadata configurations, it is usually deployed as a cluster of three parameters to stabilize load-balanced origins:</p>
+<li> Fixes SureRoute handling of multiple/rotating origin IPs to prevent oscillation and route flapping</li>
+<p><strong>#<forward:cache-parent.sureroute2.force-origin-ip-from-edge>on</forward:cache-parent.sureroute2.force-origin-ip-from-edge> </strong></p>
 
-            </div>
+<li> Forces Akamai to use the same origin IP for all requests from a given edge server, even if the origin DNS returns multiple IPs in a round-robin fashion</li>
+<p><strong> <forward:cache-parent.sureroute2.round-robin.status>on</forward:cache-parent.sureroute2.round-robin.status> </strong></p>
+
+<li> Disables hostname-specific pinning within the SureRoute statistics key to ensure that performance metrics are aggregated across all origin IPs rather than being split by hostname, which can help with more accurate performance monitoring and troubleshooting</li>
+<p><strong> <forward:cache-parent.sureroute2.stat-key.host>off</forward:cache-parent.sureroute2.stat-key.host> </strong></p>
+
+<p> By implementing this cluster of parameters, you can help ensure that Akamai's SureRoute feature provides more stable and consistent routing to your load-balanced origins, reducing the likelihood of oscillation and improving overall performance.</p>
+<p>### ⚠️ Implementation Warning </p>
+</p> Because this directive relies on underlying site-forwarding architecture adjustments, it **cannot be toggled inside Property Manager (Control Center UI)**. You must request Akamai Professional Services or your Solutions Engineer to inject this advanced XML metadata snippet into your property configuration. </p>
+
+</div>
         </section>          
 
         <section id=menu-pane class="menu text-center">

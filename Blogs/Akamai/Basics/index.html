@@ -64,25 +64,31 @@
                                 <hr>
 
                                 <p><strong>How DNS delegates requests on internet to Akamai Edge Servers</strong></p>
-<p> DNS TRACE for www.abc.com shows that the request is delegated to Akamai Edge Servers. The following is a sample DNS trace for www.abc.com:</p>
+<p> <strong>PART A:  DNS TRACE for www.abc.com shows that the request is delegated to ROOT Servers. The following is a sample DNS trace for www.abc.com:</strong> </p>
+
 <p>www.abc.com@165.87.13.129 (AT&T (US)):</p>      
-<p>.			150818	IN	NS	a.root-servers.net.</p>
-<p>.			150818	IN	NS	b.root-servers.net.</p>
-<p>.			150818	IN	NS	c.root-servers.net.</p>
-<p>.			150818	IN	NS	d.root-servers.net.</p>
-<p>.			150818	IN	NS	e.root-servers.net.</p>
-<p>.			150818	IN	NS	f.root-servers.net.</p>
-<p>.			150818	IN	NS	g.root-servers.net.</p>
-<p>.			150818	IN	NS	h.root-servers.net.</p>
-<p>.			150818	IN	NS	i.root-servers.net.</p>
-<p>.			150818	IN	NS	j.root-servers.net.</p>
-<p>.			150818	IN	NS	k.root-servers.net.</p>
-<p>.			150818	IN	NS	l.root-servers.net.</p>
-<p>.			150818	IN	NS	m.root-servers.net.</p>
-<p>.			150818	IN	RRSIG	NS 8 0 518400 20260621170000 20260608160000 54393 . ftrtrrgdfdfdgfer4545g
+<li>.			150818	IN	NS	a.root-servers.net.</li>
+<li>.			150818	IN	NS	b.root-servers.net.</li>
+<li>.			150818	IN	NS	c.root-servers.net.</li>
+<li>.			150818	IN	NS	d.root-servers.net.</li>
+<li>.			150818	IN	NS	e.root-servers.net.</li>
+<li>.			150818	IN	NS	f.root-servers.net.</li>
+<li>.			150818	IN	NS	g.root-servers.net.</li>
+<li>.			150818	IN	NS	h.root-servers.net.</li>
+<li>.			150818	IN	NS	i.root-servers.net.</li>
+<li>.			150818	IN	NS	j.root-servers.net.</li>
+<li>.			150818	IN	NS	k.root-servers.net.</li>
+<li>.			150818	IN	NS	l.root-servers.net.</li>
+<li>.			150818	IN	NS	m.root-servers.net.</li>
+<li>.			150818	IN	RRSIG	NS 8 0 518400 20260621170000 20260608160000 54393 . ftrtrrgdfdfdgfer4545g
 <p>;; Received 1097 bytes from 165.87.13.129#53(165.87.13.129) in 26 ms</p>
 </p>
                                 <hr>
+
+<h2 id=DNSSEC>PART B: What is DNSSEC?</h2>
+                                <hr>
+                                <li>DNSSEC is a set of protocol extensions that protect DNS by enabling resolvers to verify that DNS responses are authentic and have not been altered.</li>    
+                                <li>DNSSEC mitigates this risk by allowing DNS data to be digitally signed and cryptographically validated.</li>  
 
             </div>
         </section>          

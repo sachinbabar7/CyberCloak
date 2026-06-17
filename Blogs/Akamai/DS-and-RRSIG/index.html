@@ -60,89 +60,35 @@
                 </br>
                                 <hr>
 
-                <h2 id=Key>PART A: DNS Delegation</h2>
+                <h2 id=Key>PART A: DS Records</h2>
                                 <hr>
 
-                                <p><strong>How DNS delegates requests on internet to Akamai Edge Servers</strong></p>
-<p> <strong>PART A:  DNS TRACE for www.abc.com shows that the request is delegated to ROOT Servers. The following is a sample DNS trace for www.abc.com:</strong> </p>
-
-<p>www.abc.com@165.87.13.129 (AT&T (US)):</p>      
+                                <p><strong>What is DS Record?</strong></p>
+<p> <strong>DS (Delegation Signer)</strong> record is a crucial DNSSEC (Domain Name System Security Extensions) record used to secure a domain. </p>
+<p>It sits in a parent zone (such as .com or .org) and holds a cryptographic hash of the child zone's Key Signing Key (KSK).</p>
+<p>This creates an unbreakable "chain of trust" from the root of the internet down to your specific domain.</p>
+<p>When a DNS resolver queries your website, it compares the DS record in the parent zone to your actual domain keys to ensure your DNS responses haven't been hijacked or forged by malicious actors</p>
+<hr>
+<h2>Components of a DS Record</h2>
+<hr>
 <ul>
-<li>.			150818	IN	NS	a.root-servers.net.</li>
-<li>.			150818	IN	NS	b.root-servers.net.</li>
-<li>.			150818	IN	NS	c.root-servers.net.</li>
-<li>.			150818	IN	NS	d.root-servers.net.</li>
-<li>.			150818	IN	NS	e.root-servers.net.</li>
-<li>.			150818	IN	NS	f.root-servers.net.</li>
-<li>.			150818	IN	NS	g.root-servers.net.</li>
-<li>.			150818	IN	NS	h.root-servers.net.</li>
-<li>.			150818	IN	NS	i.root-servers.net.</li>
-<li>.			150818	IN	NS	j.root-servers.net.</li>
-<li>.			150818	IN	NS	k.root-servers.net.</li>
-<li>.			150818	IN	NS	l.root-servers.net.</li>
-<li>.			150818	IN	NS	m.root-servers.net.</li>
-<li>.			150818	IN	<strong>RRSIG</strong>	NS 8 0 518400 20260621170000 20260608160000 54393 . ftrtrrgdfdfdgfer4545g
-</ul>
-<p>;; Received 1097 bytes from 165.87.13.129#53(165.87.13.129) in 26 ms</p>
-</p>
-                                <hr>
-
-<h2 id=DNSSEC>PART B: What is DNSSEC?</h2>
-                                <hr>
-                                <ul>
-                                    <li>DNSSEC is a set of protocol extensions that protect DNS by enabling resolvers to verify that DNS responses are authentic and have not been altered.</li>    
-                                    <li>DNSSEC mitigates this risk by allowing DNS data to be digitally signed and cryptographically validated.</li> 
-                                    <li>DNSSEC also provides origin authentication, ensuring that the DNS data comes from the legitimate source.</li>
-                                    <li>DNSSEC is about <strong>trust</strong>, verifying that the DNS answer you received is the one the domain owner intended to publish.</li>
-                                    <li>Benefits of DNSSEC:</li>
-                                        <ul>
-                                            <li>Prevents DNS Cache Poisoning</li>
-                                            <li>Ensures Data Integrity</li>
-                                            <li>Provides Origin Authentication</li>
-                                            <li>Supports Secure Delegation</li>
-                                            <li>Enhances Overall DNS Security</li>
-                                            <li><strong>Authenticity:</strong> Did this DNS data really come from the domain owner?</li>
-                                            <li><strong>Integrity:</strong> Was the data altered while traveling across the internet?</li>
-                                        </ul>
-                                </ul>
-                                <hr> 
-<h2 id=CachePoisoning>DNS Cache Poisoning</h2>
-<p>DNS cache poisoning is a type of attack that exploits vulnerabilities in the Domain Name System (DNS) to redirect users to malicious websites or servers. In this attack, an attacker sends forged DNS responses to a DNS resolver, which then caches the incorrect information. As a result, when users attempt to access a legitimate website, they are instead directed to a malicious site controlled by the attacker.</p>
-<p>DNS cache poisoning can have serious consequences, including:</p>    
-<ul>
-    <li>Data and Identity Theft: harvest login credentials and personal information</li>
-    <li>Malware Distribution: redirect users to sites that host malware</li>
-    <li>Phishing Attacks: redirect users to fake websites that mimic legitimate ones</li>
-    <li>Denial of Service (DoS) Attacks: redirect users to non-existent or malicious servers, causing service disruptions</li>
-    <li>Reputation Damage: damage the reputation of legitimate websites and organizations</li>
+    <li>Key Tag: Unique identifier for the DS record</li>
+    <li>Digest Type: SHA-256</li>
+    <li>Digest: Hash of the child zone's KSK</li> 
+    <li>Algorithm: RSASHA256</li>
 </ul>
 <hr>
-<h2 id=How it works>How DNSSEC Works</h2>
-<p>DNSSEC strengthens DNS by adding digital signatures based on public key cryptography. Instead of blindly trusting responses, resolvers can verify them.</p>
+<h2>How the Chain of Trust Works</h2>
 <ul>
-    <li>Each DNS zone has a private key and a public key</li>
-    <li>The private key is used to sign DNS records.</li>
-    <li>The public key is published in DNS and used for verification.</li>
-    </ul>
-<p>When a DNSSEC-enabled resolver receives a response:
-    <ul>
-        <li>It retrieves the record’s digital signature (RRSIG)</li>
-        <li>It retrieves the zone’s public key (DNSKEY)</li>
-        <li>It validates the signature against the data</li>
-            <ul>
-                <li>Valid signature → response is trusted</li>
-                <li>Invalid or missing signature → response is rejected</li>
-            </ul>
-<p>Importantly, DNSSEC signs the data itself– not individual queries– therefore, caching and performance remain intact.</p>
-    </ul>
- <li> To find how many external hosted DNS servers a domain uses, DNSSEC signed & who registrar information </li>   
- <p> Search for dlp_domain_whois on internet</p>
- <p> Example: DBS.COM domain </p>
-<img src=https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/Akamai/Basics/DBSDomain.png alt=DBS_DNSSEC width=800 height=400>
-<img src=https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/Akamai/Basics/ExampleWOIS.jpg alt=Example_DNSSEC width=800 height=400>
-
-
+    <li>Generation: When you enable DNSSEC, your domain generates cryptographic keys (a Zone Signing Key (ZSK) and a Key Signing Key (KSK)). </li>
+    <li>Hashing: A digest (hash) of your Key Signing Key is created.</li>
+    <li>Parent Publishing: You submit this digest to your domain registrar, who publishes it as a DS record in the parent zone registry.</li>
+    <li>Verification: When a DNS-aware resolver queries your domain, it looks at the parent's DS record. It then checks your domain's keys and locally hashes them. If the local hash matches the digest in the parent's DS record, the resolver trusts your domain's DNS records.</li>
 </ul>
+
+<img src=https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/Akamai/DS-and-RRSIG/DS-Registrar.jpg alt=DBS_DNSSEC width=800 height=400>
+<img src=https://raw.githubusercontent.com/sachinbabar7/CyberCloak/main/Blogs/Akamai/DS-and-RRSIG/Trace-DNSSEC.jpg alt=Example_DNSSEC width=800 height=400>
+
             </div>
         </section>          
 

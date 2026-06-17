@@ -89,15 +89,23 @@
 
 <h2 id=DNSSEC>PART B: What is DNSSEC?</h2>
                                 <hr>
-                                <li>DNSSEC is a set of protocol extensions that protect DNS by enabling resolvers to verify that DNS responses are authentic and have not been altered.</li>    
-                                <li>DNSSEC mitigates this risk by allowing DNS data to be digitally signed and cryptographically validated.</li> 
-                                <li>DNSSEC also provides origin authentication, ensuring that the DNS data comes from the legitimate source.</li>
-                                <li>DNSSEC is about <strong>trust</strong>, verifying that the DNS answer you received is the one the domain owner intended to publish.</li>
+                                <ul>
+                                    <li>DNSSEC is a set of protocol extensions that protect DNS by enabling resolvers to verify that DNS responses are authentic and have not been altered.</li>    
+                                    <li>DNSSEC mitigates this risk by allowing DNS data to be digitally signed and cryptographically validated.</li> 
+                                    <li>DNSSEC also provides origin authentication, ensuring that the DNS data comes from the legitimate source.</li>
+                                    <li>DNSSEC is about <strong>trust</strong>, verifying that the DNS answer you received is the one the domain owner intended to publish.</li>
+                                </ul>
                                 <hr> 
 <h2 id=CachePoisoning>DNS Cache Poisoning</h2>
 <p>DNS cache poisoning is a type of attack that exploits vulnerabilities in the Domain Name System (DNS) to redirect users to malicious websites or servers. In this attack, an attacker sends forged DNS responses to a DNS resolver, which then caches the incorrect information. As a result, when users attempt to access a legitimate website, they are instead directed to a malicious site controlled by the attacker.</p>
 <p>DNS cache poisoning can have serious consequences, including:</p>    
-<
+<ul>
+    <li>Data and Identity Theft: harvest login credentials and personal information</li>
+    <li>Malware Distribution: redirect users to sites that host malware</li>
+    <li>Phishing Attacks: redirect users to fake websites that mimic legitimate ones</li>
+    <li>Denial of Service (DoS) Attacks: redirect users to non-existent or malicious servers, causing service disruptions</li>
+    <li>Reputation Damage: damage the reputation of legitimate websites and organizations</li>
+</ul>
             </div>
         </section>          
 

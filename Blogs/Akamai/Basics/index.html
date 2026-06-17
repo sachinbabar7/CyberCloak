@@ -60,7 +60,7 @@
                 </br>
                                 <hr>
 
-                <h2 id=Key>PART A: Akamai Architecture</h2>
+                <h2 id=Key>PART A: DNS Delegation</h2>
                                 <hr>
 
                                 <p><strong>How DNS delegates requests on internet to Akamai Edge Servers</strong></p>
@@ -87,13 +87,23 @@
 </p>
                                 <hr>
 
-<h2 id=DNSSEC>PART B: What is DNSSEC?</h2>
+<h2 id=DNSSEC>PART B: What is DNSSEC & RRSIG Records?</h2>
                                 <hr>
                                 <ul>
                                     <li>DNSSEC is a set of protocol extensions that protect DNS by enabling resolvers to verify that DNS responses are authentic and have not been altered.</li>    
                                     <li>DNSSEC mitigates this risk by allowing DNS data to be digitally signed and cryptographically validated.</li> 
                                     <li>DNSSEC also provides origin authentication, ensuring that the DNS data comes from the legitimate source.</li>
                                     <li>DNSSEC is about <strong>trust</strong>, verifying that the DNS answer you received is the one the domain owner intended to publish.</li>
+                                    <li>Benefits of DNSSEC:</li>
+                                        <ul>
+                                            <li>Prevents DNS Cache Poisoning</li>
+                                            <li>Ensures Data Integrity</li>
+                                            <li>Provides Origin Authentication</li>
+                                            <li>Supports Secure Delegation</li>
+                                            <li>Enhances Overall DNS Security</li>
+                                            <li><strong>Authenticity:</strong> Did this DNS data really come from the domain owner?</li>
+                                            <li><strong>Integrity:</strong> Was the data altered while traveling across the internet?</li>
+                                        </ul>
                                 </ul>
                                 <hr> 
 <h2 id=CachePoisoning>DNS Cache Poisoning</h2>
@@ -105,6 +115,28 @@
     <li>Phishing Attacks: redirect users to fake websites that mimic legitimate ones</li>
     <li>Denial of Service (DoS) Attacks: redirect users to non-existent or malicious servers, causing service disruptions</li>
     <li>Reputation Damage: damage the reputation of legitimate websites and organizations</li>
+</ul>
+<hr>
+<h2 id=How it works>How DNSSEC Works</h2>
+<p>DNSSEC strengthens DNS by adding digital signatures based on public key cryptography. Instead of blindly trusting responses, resolvers can verify them.</p>
+<ul>
+    <li>Each DNS zone has a private key and a public key</li>
+    <li>The private key is used to sign DNS records.</li>
+    <li>The public key is published in DNS and used for verification.</li>
+    </ul>
+<p>When a DNSSEC-enabled resolver receives a response:
+    <ul>
+        <li>It retrieves the record’s digital signature (RRSIG)</li>
+        <li>It retrieves the zone’s public key (DNSKEY)</li>
+        <li>It validates the signature against the data</li>
+            <ul>
+                <li>Valid signature → response is trusted</li>
+                <li>Invalid or missing signature → response is rejected</li>
+            </ul>
+<p>Importantly, DNSSEC signs the data itself– not individual queries– therefore, caching and performance remain intact.</p>
+    </ul>
+
+</p>
 </ul>
             </div>
         </section>          

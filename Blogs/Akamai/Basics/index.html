@@ -67,6 +67,7 @@
 <p> <strong>PART A:  DNS TRACE for www.abc.com shows that the request is delegated to ROOT Servers. The following is a sample DNS trace for www.abc.com:</strong> </p>
 
 <p>www.abc.com@165.87.13.129 (AT&T (US)):</p>      
+<ul>
 <li>.			150818	IN	NS	a.root-servers.net.</li>
 <li>.			150818	IN	NS	b.root-servers.net.</li>
 <li>.			150818	IN	NS	c.root-servers.net.</li>
@@ -80,7 +81,8 @@
 <li>.			150818	IN	NS	k.root-servers.net.</li>
 <li>.			150818	IN	NS	l.root-servers.net.</li>
 <li>.			150818	IN	NS	m.root-servers.net.</li>
-<li>.			150818	IN	RRSIG	NS 8 0 518400 20260621170000 20260608160000 54393 . ftrtrrgdfdfdgfer4545g
+<li>.			150818	IN	<strong>RRSIG</strong>	NS 8 0 518400 20260621170000 20260608160000 54393 . ftrtrrgdfdfdgfer4545g
+</ul>
 <p>;; Received 1097 bytes from 165.87.13.129#53(165.87.13.129) in 26 ms</p>
 </p>
                                 <hr>
@@ -88,8 +90,14 @@
 <h2 id=DNSSEC>PART B: What is DNSSEC?</h2>
                                 <hr>
                                 <li>DNSSEC is a set of protocol extensions that protect DNS by enabling resolvers to verify that DNS responses are authentic and have not been altered.</li>    
-                                <li>DNSSEC mitigates this risk by allowing DNS data to be digitally signed and cryptographically validated.</li>  
-
+                                <li>DNSSEC mitigates this risk by allowing DNS data to be digitally signed and cryptographically validated.</li> 
+                                <li>DNSSEC also provides origin authentication, ensuring that the DNS data comes from the legitimate source.</li>
+                                <li>DNSSEC is about <strong>trust</strong>, verifying that the DNS answer you received is the one the domain owner intended to publish.</li>
+                                <hr> 
+<h2 id=CachePoisoning>DNS Cache Poisoning</h2>
+<p>DNS cache poisoning is a type of attack that exploits vulnerabilities in the Domain Name System (DNS) to redirect users to malicious websites or servers. In this attack, an attacker sends forged DNS responses to a DNS resolver, which then caches the incorrect information. As a result, when users attempt to access a legitimate website, they are instead directed to a malicious site controlled by the attacker.</p>
+<p>DNS cache poisoning can have serious consequences, including:</p>    
+<
             </div>
         </section>          
 
